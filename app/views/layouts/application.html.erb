@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
+    <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -37,6 +37,9 @@
       <%= link_to "Log in", new_user_session_path %>
     </li>
     <% end %>
-    <%= yield %>
   </body>
+  <main>
+    <%= yield %>
+  </main>
+  <hooter></hooter>
 </html>
