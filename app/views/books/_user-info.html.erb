@@ -1,24 +1,33 @@
 <h2>User info</h2>
-<table>
-  <tr><th><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></th></tr>
-  <tr><th>name</th><td><%= user.name %></td></tr>
-  <tr><th>introduction</th><td><%= user.introduction %></td></tr>
+<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+<table class="table">
+  <tbody>
+    <tr></tr>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </tbody>
 </table>
 <% if user.id == current_user.id %>
   <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
 <% end %>
 
 <h2>New book</h2>
-  <%= form_with model:book, local:true do |f| %>
-    <div class="field">
-      <div><%= f.label :title, "Title" %></div>
-      <div><%= f.text_field :title, placeholder:"" %></div>
-    </div>
-    <div class="field">
-      <div><%= f.label :body, "Body" %></div>
-      <div><%= f.text_area :body, placeholder:"" %>
-    </div>
-    <div class="actions">
-      <%= f.submit 'Create Book' %>
-    </div>
-  <% end %>
+<%= form_with model:book, local:true do |f| %>
+  <div class="field">
+  <div><%= f.label :title, "Title" %></div>
+    <div><%= f.text_field :title, placeholder:"" %></div>
+  </div>
+  <div class="field">
+    <div><%= f.label :body, "Body" %></div>
+    <div><%= f.text_area :body, placeholder:"" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Create Book' %>
+  </div>
+<% end %>

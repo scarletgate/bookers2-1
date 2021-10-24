@@ -2,7 +2,14 @@
 <html>
   <body>
     <header>
-      <title>Bookers</title>
+      <nav class="navber navber-expand-lg navber-dark bg-dark" >
+        <div class="container">
+          <a class="navber-brand" href="/">
+            <span>Bookers</span>
+          </a>
+        </div>
+      </nav>
+
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
 
@@ -11,7 +18,7 @@
 
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Home", user_path(@user.id) %>
+          <%= link_to "Home", user_path(current_user.id) %>
         </li>
         <li>
           <%= link_to "Users", "/users" %>
@@ -41,7 +48,13 @@
       <%= yield %>
     </main>
     <hooter>
-      <p>CopyRight Infratop.inc</p>
+      <div class="container", "mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
     </hooter>
   </body>
 </html>
