@@ -14,10 +14,13 @@
  *= require_self
  */
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+.navbar-dark .navberbrand {
+  color: #fff;
+}
+
+#notice {
+  color: green;
 }
