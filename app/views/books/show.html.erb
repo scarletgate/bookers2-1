@@ -17,7 +17,7 @@
             <td><%= @books.body %></td>
             <td>
               <div id="favorites_buttons_<%= @books.id %>">
-                <%= render partial: 'favorites/favorite', locals: { book: @books} %>
+                <%= render 'favorites/favorite', book: @books %>
               </div>
             </td>
             <td><p>コメント件数：<%= @books.book_comments.count %></p></td>
@@ -28,10 +28,10 @@
           </tr>
         </tbody>
       </table>
-      <div id="books_buttons_<%= @books.id %>">
-        <%= render partial: 'book_comments/book_comment', locals: { book: @books} %>
+      <div id="book_comments_buttons_<%= @books.id %>">
+        <%= render 'book_comments/book_comment', books: @books %>
       </div>
-      <%= form_with(model:[@books, @book_comment], local: true) do |f| %>
+      <%= form_with(model:[@books, @book_comment], remote: true) do |f| %>
         <div class="field">
           <%= f.text_area :comment, class: 'form-control', placeholder: "" %>
         </div>
