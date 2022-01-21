@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about', to: 'homes#about'
   devise_for :users
-  devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
-  end
+#   devise_scope :user do
+#     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+#   end
   resources :books, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
    resource :favorites, only: [:create, :destroy]
    resources :book_comments, only: [:create, :destroy]
